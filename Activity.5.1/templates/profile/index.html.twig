@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+{% if app.user %}
+  <h2>Les Cursus de Talan Academy:</h2>
+
+<div class="container">
+
+    <div class="row">
+
+         <div class="card border mb-8" style="max-width: 30rem; min-width: 20rem;">
+             <h3 class="card-header">Php Symfony</h3>
+                <div class="card-body">
+                 <img  src="https://symfony.com/images/opengraph/symfony.png" alt= "Symfony"  width="380px" height="300px">
+          
+                </div>
+              
+        </div>
+          <div class="card border mb-8" style="max-width: 30rem; min-width: 20rem;">
+              <h3 class="card-header">Java</h3>
+                <div class="card-body">
+                <img  src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/2e/Java_Logo.svg/1200px-Java_Logo.svg.png" alt= "Java"  width="380px" height="300px">
+                  
+                </div>
+              
+                 
+        </div
+   
+                 
+        </div>
+    </div>
+   </div>
+ {% endif %}
+
+{% endblock %}

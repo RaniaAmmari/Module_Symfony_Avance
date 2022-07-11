@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <meta charset="UTF-8">
+            <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary  {{ app.session.flashbag.peek('success')|length > 0 ? '' : 'mb-5' }}">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="/">Acceuil</a>
+                    </li>
+                         <li class="nav-item  active">
+                    <a class="nav-link" href="/index">Profile</a>
+                    </li>
+                    <li class="nav-item  active">
+                    <a class="nav-link" href="{{ path('admin') }}">Admin</a>
+                    </li>
+                    <li class="nav-item  active">
+                    <a class="nav-link" href="{{ path('user') }}">Utilisateur</a>
+                    </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/Register">S'inscrire</a>
+                    </li>
+                     {# {% for role in app.user.roles %}
+                       <li>
+                            {% if role == ["ROLE_USER"] %}
+                                Utilisateur
+                            {% elseif role == ["ROLE_ADMIN"] %}
+                                Admin
+                            {% endif %}
+                        {% endfor %}
+                          </li> #}
+              
+
+                {% if app.user %}
+            
+                  {# {% if app.user.email == 'ADMIN@ADMIN.COM' %}
+         <li class="nav-item  active">
+                    <a class="nav-link" href="{{ path('admin') }}">ADMIN</a>
+                    </li>
+    {% endif %} #}
+                    <li class="nav-item  ">
+                    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                    </li>
+                    {% else %}
+                         <li class="nav-item  ">
+                        <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                    </li>
+                {% endif %}  
+            </div>
+        </nav>
+
+        <div class="container">
+          
+        {% block body %}
+        {% endblock %}
+   </div>
+    </body>
+   
+</html>

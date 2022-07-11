@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello !{% endblock %}
+{# {% form_theme formUser 'bootstrap_4_layout.html.twig' %} #}
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    
+<form action="{{ path('connect') }}" method="post">
+  
+    <legend>Connectez-vous</legend>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Adresse Email</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Entrer un email" name="_username">
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Mot de passe</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe"  name="_password">
+    </div>
+    <button type="submit" class="btn btn-success">Enregistrer</button>
+  
+</form>
+
+</div>
+{% endblock %}

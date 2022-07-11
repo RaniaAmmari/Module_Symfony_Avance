@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code {  padding: 2px 6px; }
+</style>
+<br>
+<div class="container">
+
+            
+{% if is_granted('ROLE_ADMIN')%}
+
+                        <h2>Admin page</h2>
+                        <p>The Admin page gives you access to the Analytics administrative features.</p
+           
+{% endif %}  
+                     <h2>Userpage</h2>
+                    <p>the following is our course today</p>
+
+        
+{% endblock %}
