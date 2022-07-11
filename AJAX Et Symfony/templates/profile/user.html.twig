@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code {  padding: 2px 6px; }
+</style>
+<br>
+<div class="container">
+
+            
+{% if is_granted('ROLE_ADMIN')%}
+
+                        <h2>Admin page</h2>
+                        <p>The Admin page gives you access to the Analytics administrative features.</p
+           
+{% endif %}  
+                     <h2>Userpage</h2>
+                    <p>the following is our course today</p>
+                <div>  
+                    <button type="button" onclick="myFunction()">Request data</button>
+<div>
+              <span id="userName"> </span> 
+            <br> 
+            <span id="email"> </span>       
+                </div> 
+                </div>
+             {% block javascripts %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+ 
+<script>
+    
+    function myFunction(){
+ 
+        axios.get("/users/ajax").then(function(response){
+            console.log(response.data);
+            document.getElementById('userName').textContent = response.data.userName;
+            document.getElementById('email').textContent = response.data.email;
+        })
+    }
+ 
+</script>
+
+{% endblock %}       
+
+        
+{% endblock %}

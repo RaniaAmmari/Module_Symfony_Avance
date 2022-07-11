@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %} 
+  
+ 
+<button type="button" onclick="myFunction()">Request data</button> 
+{% block javascripts %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+ 
+<script>
+    
+    function myFunction(){
+ 
+        axios.get("/users/ajax").then(function(response){
+            console.log(response.data);
+            document.getElementById('userName').textContent = response.data.user;
+            document.getElementById('email').textContent = response.data.email;
+        })
+    }
+ 
+</script>
+ 
+{% endblock %}
+ 
