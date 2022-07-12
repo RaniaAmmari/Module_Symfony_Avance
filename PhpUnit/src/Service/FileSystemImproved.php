@@ -63,7 +63,7 @@ public function deleteFile($filename)
     return true;
 }
 
-public function writeInFile($filename, $text, $offset = 0)
+public function writeFile($filename, $text, $offset = 0)
     {
         $files = $this->finder->in(dirname(getcwd()))->path($filename);
         if (!$files->hasResults()) {

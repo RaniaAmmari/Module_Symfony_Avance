@@ -22,6 +22,13 @@ Class FileSystemImprovedTest extends TestCase {
              $fsi = new FileSystemImproved();
 
       $this->assertSame(true, $fsi->deleteFile('test6'));
-
-      }
+ }
+   public function testWriteFile(){
+     $fsi = new FileSystemImproved();
+     $this->assertSame(true,$fsi->writeFile('test1', 'we are not doing good'));
+}
+   public function testReadFile(){
+     $fsi = new FileSystemImproved();
+      $this->assertNotFalse($fsi->readFile('test1'));
+}
 } 
