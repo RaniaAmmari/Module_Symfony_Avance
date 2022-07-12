@@ -27,13 +27,7 @@ class ProfileController extends AbstractController
     
     { 
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $repos=$this->getDoctrine()->getRepository(User::class);
-        $users=$repos->findAll();
-      
-        return $this->render('profile/admin.html.twig', [
-            'controller_name' => 'ProfileController',
-            'users'=>$users
-        ]);
+        return $this->render('profile/admin.html.twig);
     }
  /**
      * @Route("/user", name="user")
