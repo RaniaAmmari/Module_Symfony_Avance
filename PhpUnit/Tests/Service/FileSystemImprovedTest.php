@@ -10,25 +10,26 @@ Class FileSystemImprovedTest extends TestCase {
  public function testState()
     {
     $fsi=new FileSystemImproved();
-      $this->assertSame(['test1','test2','test4','test5'], $fsi->state());
+      $this->assertSame(['test2','test4'], $fsi->state());
    }
    public function testcreateFile()
    {  
       $crs=new FileSystemImproved();
-      $this->assertSame(['test1','test2','test4','test5','test6'], $crs->createFile('test6'));;
+      $this->assertSame(["test2","test4"], $crs->createFile("test1"));;
    }
    public function testdeleteFile()
       {
              $fsi = new FileSystemImproved();
 
-      $this->assertSame(true, $fsi->deleteFile('test6'));
+      $this->assertSame(true, $fsi->deleteFile("test4"));
  }
    public function testWriteFile(){
      $fsi = new FileSystemImproved();
-     $this->assertSame(true,$fsi->writeFile('test1', 'we are not doing good'));
+     $this->assertSame(true,$fsi->writeFile('test2', 'we are not doing good'));
 }
    public function testReadFile(){
      $fsi = new FileSystemImproved();
-      $this->assertNotFalse($fsi->readFile('test1'));
-}
+      $this->assertNotFalse($fsi->readFile('test2'));
+
 } 
+}
