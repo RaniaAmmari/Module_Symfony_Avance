@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<br>
+<div class="jumbotron">
+
+  <h1 class="display-6">Welcome Admin</h1>
+  {# <hr class="my-4">
+ {% for x in users %} 
+    <li> {{ x.userName }}  </li> 
+      {% endfor %} 
+
+#}
+<script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script> 
+<div id="presidents">Loading...</div>
+<script>
+$(function() {
+
+
+$('#presidents').initDataTables({{ datatable_settings(datatable) }}, {
+    searching: true,
+    dom:'<"html5buttons"B>lTfgitp',
+    buttons: [
+        'copy',
+        { extend: 'pdf', title: 'domains'},
+        { extend: 'print' }
+    ]
+}).then(function(dt) {
+    // dt contains the initialized instance of DataTables
+    dt.on('draw', function() {
+       // alert('Redrawing table');
+    })
+});
+});
+</script>
+</div>
+
+{% endblock %}
